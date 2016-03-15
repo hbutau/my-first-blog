@@ -24,3 +24,34 @@
 	background-color: #FFFFFF;
 	color: #032CA6;
 }
+
+#nav navbar-nav
+li
+{
+	color: #032CA6;
+}
+#navbar-link
+{
+	color:#032CA6
+}
+
+#navbar-link:hover
+{
+	color:#FF0000
+}
+a
+	{
+		color: #032CA6;
+	}
+
+	a:hover
+	{
+		text-decoration: none;
+		color: #FF0000;
+	}
+}
+
+#btn btn-default
+{
+	color: FF0000;
+}
