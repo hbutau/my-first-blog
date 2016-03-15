@@ -8,10 +8,12 @@ from django.core.urlresolvers import reverse_lazy
 from django.template.loader import render_to_string
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.utils import timezone
 
 from datetime import datetime
 
 from blog.forms import ContactForm
+from .models import Post
 
 
 class HomeView(TemplateView):
@@ -31,6 +33,7 @@ class Post_ListView(TemplateView):
         context = super(Post_ListView, self).get_context_data(**kwargs)
         context['title'] = 'Blog Posts'
         context['year'] = datetime.now().year
+        context['posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
         return context
 
 
@@ -42,8 +45,8 @@ class ContactView(TemplateView):
         context = super(ContactView, self).get_context_data(**kwargs)
         contact_form = ContactForm()
         context['contact_form'] = contact_form
-        context['title'] = 'Contact Us'
-        context['message'] = 'Our Contact Details'
+        context['title'] = 'Contact Me'
+        context['message'] = 'My Company/Contact Details'
         context['year'] = datetime.now().year
         return context
 
@@ -79,5 +82,35 @@ class GalleryView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(GalleryView, self).get_context_data(**kwargs)
         context['title'] = 'My Work in Pictures'
+        context['year'] = datetime.now().year
+        return context
+
+
+class EducationView(TemplateView):
+    template_name = "blog/education.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(EducationView, self).get_context_data(**kwargs)
+        context['title'] = 'Educational Profile'
+        context['year'] = datetime.now().year
+        return context
+
+
+class ProfessionalView(TemplateView):
+    template_name = "blog/professional.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfessionalView, self).get_context_data(**kwargs)
+        context['title'] = 'Professional Experience'
+        context['year'] = datetime.now().year
+        return context
+
+
+class VolunteerView(TemplateView):
+    template_name = "blog/volunteer.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(VolunteerView, self).get_context_data(**kwargs)
+        context['title'] = 'Volunteer Work'
         context['year'] = datetime.now().year
         return context

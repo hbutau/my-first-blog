@@ -2,6 +2,19 @@
 
 {% block content %}
 
-{{ message }}
+<div>
+<h1><a href="">My Blog</a></h1>
+<br />
+</div>
+<div>
+{% for r in posts %}
+  <div>
+    <p>published: {{ r.published_date }} </p>
+    <h2><a href="">{{ r.title }}</a></h2>
+    <p>{{ r.text }} </p> </div>
+  </div>
+  <br />
+{% endfor %}
+</div>
 
 {% endblock %}

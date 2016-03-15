@@ -3,5 +3,45 @@
 {% block content %}
 
 {{ message }}
+<div>
+<h1><a href="">About me</a></h1><br />
+</div>
+<p> Welcome to Anna Makarudze's personal website, which gives you more information about ME!<p/>
 
+<p> Anna Makarudze is young woman aged 29, born on the 30th June 1986 in Chibi,
+  Masvingo, Zimbabwe. Anna is an entreprenuer, ICT consultant, Python/Django
+  software developer, researcher and a Django Girls organiser. She is currently
+  working on starting up and establishing her own software development and
+  consultancy firm, Anntele Business Solutions P/L. Anna hopes to promote and
+  advance the use of open source software in Africa through using open source
+  programs in software development. She also hopes to empower other young people,
+  especially women through Django Girls workshops and other open source meetups.
+<div class="row">
+    <div class="col-md-4">
+        <h2><a href="{% url 'education' %}">Educational Profile</a></h2>
+        <p>
+            Anna Makarudze is a holder of a Master of Science in Strategic
+            Management from Chinhoyi University of Technology, a Bachelor of
+            Science (Honours) Degree in Computer Science from Midlands State University
+            (2009) and a Certificate in Customer Relationship Management from
+            the University of South Africa.
+        </p>
+        <p><a class="btn btn-default" href="{% url 'education' %}">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2><a href="{% url 'professional' %}">Professional Experience</a></h2>
+        <p>TAnna has a strong telecoms and ICT background, having held various
+          posts in different organisations. Anna started her career by working
+          for Fbnet as Helpdesk Technician from June 2009 to August 2009. </p>
+        <p><a class="btn btn-default" href="{% url 'professional' %}">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2><a href="{% url 'volunteer' %}">Volunteer Work</a></h2>
+        <p>Anna is a member of PyZim, a local group of Python Programmers in
+          Zimbabwe. Her work with PyZim has seen her working together with
+          Humphrey Butau to organise the first ever Django Girls Harare to be
+          held in Harare on 9th April 2016.</p>
+        <p><a class="btn btn-default" href="{% url 'volunteer' %}">Learn more &raquo;</a></p>
+    </div>
+</div>
 {% endblock %}
