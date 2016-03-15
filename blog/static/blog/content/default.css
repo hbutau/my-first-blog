@@ -10,10 +10,17 @@
 		height:550px;
 		border-bottom: 20px solid rgba(0,0,0,.5);
 		background-repeat: no-repeat;
-		height:500px;
+		height:600px;
 		background-size: cover;
 	}
 
 	#header
 	{
 	}
+
+
+#navbar navbar-inverse navbar-fixed-top
+{
+	background-color: #FFFFFF;
+	color: #032CA6;
+}

@@ -114,3 +114,13 @@ class VolunteerView(TemplateView):
         context['title'] = 'Volunteer Work'
         context['year'] = datetime.now().year
         return context
+
+
+class ThankYouView(TemplateView):
+    template_name = "blog/thankyou.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ThankYouView, self).get_context_data(**kwargs)
+        context['title'] = 'Thank You'
+        context['year'] = datetime.now().year
+        return context
