@@ -46,7 +46,7 @@ class ContactView(TemplateView):
         contact_form = ContactForm()
         context['contact_form'] = contact_form
         context['title'] = 'Contact Me'
-        context['message'] = 'My Company/Contact Details'
+        context['message'] = 'My Contact Details'
         context['year'] = datetime.now().year
         return context
 
