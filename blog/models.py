@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from autoslug import AutoSlugField
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
@@ -9,6 +10,7 @@ class Post(models.Model):
     default=timezone.now)
     published_date = models.DateTimeField(
     blank=True, null=True)
+    slug = AutoSlugField(populate_from='title')
 
     def publish(self):
         self.published_date = timezone.now()
