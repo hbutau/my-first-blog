@@ -33,7 +33,7 @@ class Post_ListView(TemplateView):
         context = super(Post_ListView, self).get_context_data(**kwargs)
         context['title'] = 'Blog Posts'
         context['year'] = datetime.now().year
-        context['posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        context['posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         return context
 
 
