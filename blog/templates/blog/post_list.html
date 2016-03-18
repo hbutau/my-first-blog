@@ -6,15 +6,20 @@
 <h1><a href="">My Blog</a></h1>
 <br />
 </div>
-<div>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
 {% for r in posts %}
   <div>
     <p>published: {{ r.published_date }} </p>
     <h2><a href="">{{ r.title }}</a></h2>
     <p>{{ r.text }} </p> </div>
+    <br />
+  {% endfor %}
   </div>
-  <br />
-{% endfor %}
+  <div class="col-md-1">
+  
 </div>
 
 {% endblock %}
