@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from django.views.generic import TemplateView
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
@@ -12,7 +12,7 @@ from django.utils import timezone
 
 from datetime import datetime
 
-from blog.forms import ContactForm
+from blog.forms import ContactForm, CommentForm
 from .models import Post
 
 
@@ -23,17 +23,6 @@ class HomeView(TemplateView):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['title'] = 'Home Page'
         context['year'] = datetime.now().year
-        return context
-
-
-class Post_ListView(TemplateView):
-    template_name = "blog/post_list.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(Post_ListView, self).get_context_data(**kwargs)
-        context['title'] = 'Blog Posts'
-        context['year'] = datetime.now().year
-        context['posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         return context
 
 
@@ -124,3 +113,33 @@ class ThankYouView(TemplateView):
         context['title'] = 'Thank You'
         context['year'] = datetime.now().year
         return context
+
+
+class Post_ListView(TemplateView):
+    template_name = "blog/post_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(Post_ListView, self).get_context_data(**kwargs)
+        context['title'] = 'Blog Posts'
+        context['year'] = datetime.now().year
+        context['posts'] =  Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        return context
+
+
+class Post_DetailView(TemplateView):
+    comment_form = CommentForm()
+    template_name = "blog/post_detail.html"
+
+    def get_context_data(self, pk, **kwargs):
+        context = super(Post_DetailView, self).get_context_data(**kwargs)
+        comment_form = CommentForm()
+        context['comment_form'] = comment_form
+        context['post'] = get_object_or_404(Post, pk=pk)
+        context['title'] = 'My Blog'
+        context['message'] = 'My Blog'
+        context['year'] = datetime.now().year
+        return context
+
+    def post(self, request):
+        comment_form = CommentForm(request.POST)
+        comment_form.save()

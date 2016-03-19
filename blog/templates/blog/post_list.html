@@ -2,19 +2,15 @@
 
 {% block content %}
 
-<div>
-<h1><a href="">My Blog</a></h1>
-<br />
-</div>
 <div class="row">
     <div class="col-md-1">
     </div>
     <div class="col-md-10">
-{% for r in posts %}
+{% for post in posts %}
   <div>
-    <p>published: {{ r.published_date }} </p>
-    <h2><a href="">{{ r.title }}</a></h2>
-    <p>{{ r.text }} </p> </div>
+    <p>published: {{ post.published_date }} </p>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.summary }} </p> <a href="{% url 'post_detail' pk=post.pk %}">Read more...</a></div>
     <br />
   {% endfor %}
   </div>
