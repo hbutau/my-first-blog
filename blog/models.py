@@ -64,6 +64,7 @@ class Event(models.Model):
     location =  models.CharField(max_length=200)
     website = models.TextField()
     comments = models.TextField()
+    dateposted = models.DateTimeField()
 
     class Meta:
         managed = True
