@@ -44,7 +44,7 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(
     blank=True, null=True)
-    post = models.ForeignKey(Post)
+    post = models.CharField(max_length=5)
 
     class Meta:
         managed = True
@@ -55,3 +55,18 @@ class Comment(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=200)
+    fromdate = models.DateTimeField()
+    todate = models.DateTimeField()
+    location =  models.CharField(max_length=200)
+    website = models.TextField()
+    comments = models.TextField()
+
+    class Meta:
+        managed = True
+
+    def __str__(self):
+        return self.name

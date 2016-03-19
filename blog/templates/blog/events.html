@@ -2,39 +2,24 @@
 
 {% block content %}
 <div>
-<h2><a href="{% url 'events' %}">Events</a></h2>
+  <h3>Upcoming Events</h3>
 </div>
-<div>
-<p>Anna started out her Computer Science and programming learning at Zimuto
-  High School in Masvingo where she studied GCE Ordinary Level Computer Studies
-  (2002)and GCE Advanced Level Computing (2004). She pursued her computer
-  studies through university at Midlands State University, Gweru, Zimbabwe
-   where she studied for a Bachelor of Science in Computer Science.  </p>
-<br />
-<p>Anna Makarudze is a holder of a Master of Science in Strategic Management
-  from Chinhoyi University of Technology (2015), a Bachelor of Science (Honours) Degree
-  in Computer Science from Midlands State University (2009) and a Certificate in
-  Customer Relationship Management from the University of South Africa. Anna
-  has plans to be starting her Phd studies soon by doing an MPhil/DPhil in
-  Computer Science and Informatics specialising in machine learning and
-  data mining</p>
-<br />
-<p>Anna has done several professional courses related to ICT, which include:
-  <ul>
-      <li>Entrepreneurship and Digital Skills Training, Ubuntu Training Academy &
-  Muzinda Hub, Zimbabwe – 2015</li>
-    <li>Learn Python, Treehouse & Muzinda Hub, Zimbabwe – 2015</li>
-      <li>Cisco Certified Network Associate (CCNA) Discovery, St Georges College,
-  Zimbabwe – 2010</li>
-    <li>6419A: Configuring, Managing, Maintaining Windows Server® 2008 Servers,
-  ICT Academy, Zimbabwe – 2010</li>
-    <li>6425B: Configuring and Troubleshooting Windows Server® 2008 Active Directory®
-  Domain Services, ICT Academy, Zimbabwe – 2010</li>
-  </p>
-<br />
-<p> After learning Python with Treehouse at Muzinda, Anna proceeded to learn
-  Django and other Python packages on her own. She is still developing and
-  perfecting her skills in Python/Django so that she can use them to develop
-  powerful web applications.</p>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+{% for event in events %}
+  <div>
+    <h2>{{ event.name }} </h2>
+    <p>{{ event.location }} </p>
+    <p>Date(s): {{ event.fromdate }} -  {{ event.todate }}</p>
+    <h2><a href="">{{ event.website }}</a></h2>
+    <p>{{ event.comments }} </p> </div>
+    <br />
+  {% endfor %}
+  </div>
+  <div class="col-md-1">
+
+</div>
 </div>
 {% endblock %}

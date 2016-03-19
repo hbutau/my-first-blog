@@ -13,7 +13,7 @@ from django.utils import timezone
 from datetime import datetime
 
 from blog.forms import ContactForm, CommentForm
-from .models import Post
+from .models import Post, Event
 
 
 class HomeView(TemplateView):
@@ -75,32 +75,33 @@ class GalleryView(TemplateView):
         return context
 
 
-class EducationView(TemplateView):
-    template_name = "blog/education.html"
+class EventsView(TemplateView):
+    template_name = "blog/events.html"
 
     def get_context_data(self, **kwargs):
-        context = super(EducationView, self).get_context_data(**kwargs)
-        context['title'] = 'Educational Profile'
+        context = super(EventsView, self).get_context_data(**kwargs)
+        context['events'] =  Event.objects.filter(fromdate__lte=timezone.now()).order_by('-fromdate')
+        context['title'] = 'Upcoming Events'
         context['year'] = datetime.now().year
         return context
 
 
-class ProfessionalView(TemplateView):
-    template_name = "blog/professional.html"
+class PythonView(TemplateView):
+    template_name = "blog/python.html"
 
     def get_context_data(self, **kwargs):
-        context = super(ProfessionalView, self).get_context_data(**kwargs)
-        context['title'] = 'Professional Experience'
+        context = super(PythonView, self).get_context_data(**kwargs)
+        context['title'] = 'Python'
         context['year'] = datetime.now().year
         return context
 
 
-class VolunteerView(TemplateView):
-    template_name = "blog/volunteer.html"
+class DjangoView(TemplateView):
+    template_name = "blog/django.html"
 
     def get_context_data(self, **kwargs):
-        context = super(VolunteerView, self).get_context_data(**kwargs)
-        context['title'] = 'Volunteer Work'
+        context = super(DjangoView, self).get_context_data(**kwargs)
+        context['title'] = 'Django'
         context['year'] = datetime.now().year
         return context
 
