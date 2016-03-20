@@ -59,7 +59,7 @@ class Comment(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
-    fromdate = models.DateTimeField('from fate', default=timezone.now)
+    fromdate = models.DateTimeField('from date', default=timezone.now)
     todate = models.DateTimeField('to date', default=timezone.now)
     location =  models.CharField(max_length=200)
     website = models.TextField()

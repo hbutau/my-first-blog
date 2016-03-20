@@ -1,6 +1,26 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
+<div>
+  <h3>Upcoming Events</h3>
+</div>
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
 
+  </div>
+  <div class="col-md-4">
+    {% for event in events %}
+      <div>
+        <h2>{{ event.name }} </h2>
+        <p><strong>Location:</strong> {{ event.location }} </p>
+        <p><strong>Date:</strong> {{ event.fromdate }} -  {{ event.todate }}</p>
+        <p><strong>Website:</strong> <a href="">{{ event.website }}</a></p>
+        <p>{{ event.comments }} </p> </div>
+        <br />
+      {% endfor %}
+</div>
+</div>
 
 {% endblock %}

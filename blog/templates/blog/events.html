@@ -11,9 +11,9 @@
 {% for event in events %}
   <div>
     <h2>{{ event.name }} </h2>
-    <p>{{ event.location }} </p>
-    <p>Date(s): {{ event.fromdate }} -  {{ event.todate }}</p>
-    <p><a href="">{{ event.website }}</a></p>
+    <p><strong>Location:</strong> {{ event.location }} </p>
+    <p><strong>Date:</strong> {{ event.fromdate }} -  {{ event.todate }}</p>
+    <p><strong>Website:</strong> <a href="">{{ event.website }}</a></p>
     <p>{{ event.comments }} </p> </div>
     <br />
   {% endfor %}
