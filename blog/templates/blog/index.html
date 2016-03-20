@@ -8,9 +8,7 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-7">
-      {% for article in <article class="">
-
-      </article>s %}
+      {% for article in articles %}
         <div>
           <h2><a href="{% url 'post_detail' pk=article.pk %}">{{ article.title }}</a></h2>
           <p>{{ article.summary }} </p> <a href="{% url 'post_detail' pk=article.pk %}">Read more...</a></div>
