@@ -59,12 +59,12 @@ class Comment(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
-    fromdate = models.DateTimeField(default=timezone.now)
-    todate = models.DateTimeField(default=timezone.now)
+    fromdate = models.DateTimeField('from fate', default=timezone.now)
+    todate = models.DateTimeField('to date', default=timezone.now)
     location =  models.CharField(max_length=200)
     website = models.TextField()
     comments = models.TextField()
-    dateposted = models.DateTimeField()
+    dateposted = models.DateTimeField('date posted', default=timezone.now)
 
     class Meta:
         managed = True
