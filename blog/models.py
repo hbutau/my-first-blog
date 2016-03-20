@@ -11,7 +11,7 @@ class Post(models.Model):
     default=timezone.now)
     published_date = models.DateTimeField(
     blank=True, null=True)
-    slug = AutoSlugField(populate_from='title')
+    slug = AutoSlugField(populate_from='title', unique=True)
 
     def publish(self):
         self.published_date = timezone.now()
