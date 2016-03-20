@@ -13,7 +13,7 @@ from django.utils import timezone
 from datetime import datetime
 
 from blog.forms import ContactForm, CommentForm
-from .models import Post, Event
+from .models import Post, Event, Article
 
 
 class HomeView(TemplateView):
