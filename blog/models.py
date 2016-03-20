@@ -8,7 +8,7 @@ class Post(models.Model):
     summary = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(
-    default=timezone.now)
+    default=timezone.now())
     published_date = models.DateTimeField(
     blank=True, null=True)
     slug = AutoSlugField(populate_from='title', unique=True)
@@ -27,7 +27,7 @@ class Contact(models.Model):
     email = models.CharField("email address", max_length=120)
     subject = models.CharField(max_length=120)
     message = models.TextField()
-    emaildate = models.DateTimeField(default=timezone.now)
+    emaildate = models.DateTimeField(default=timezone.now())
     category = models.CharField(max_length=15, null=True, blank=True)
 
     class Meta:
@@ -41,7 +41,7 @@ class Comment(models.Model):
     name = models.CharField("full name", max_length=120)
     email = models.CharField("email address", max_length=120)
     comment = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
+    created_date = models.DateTimeField(default=timezone.now())
     published_date = models.DateTimeField(
     blank=True, null=True)
     post = models.ForeignKey(Post, db_constraint=False)
@@ -59,12 +59,12 @@ class Comment(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
-    fromdate = models.DateTimeField()
-    todate = models.DateTimeField()
+    fromdate = models.DateTimeField(default=timezone.now())
+    todate = models.DateTimeField(default=timezone.now())
     location =  models.CharField(max_length=200)
     website = models.TextField()
     comments = models.TextField()
-    dateposted = models.DateTimeField()
+    dateposted = models.DateTimeField(default=timezone.now())
 
     class Meta:
         managed = True
