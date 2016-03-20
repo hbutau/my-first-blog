@@ -77,3 +77,9 @@ class Event(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
+    @property
+    def is_past_due(self):
+        if timezone.now() > self.todate:
+            return True
+        return False

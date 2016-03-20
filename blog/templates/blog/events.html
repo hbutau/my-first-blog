@@ -9,8 +9,7 @@
     </div>
     <div class="col-md-10">
 {% for event in events %}
- {% if event.todate < datetime.now %}
-  <div>
+   <div>
     <h3>Events</h3>
     <h2>{{ event.name }} </h2>
     <p><strong>Location:</strong> {{ event.location }} </p>
@@ -18,15 +17,7 @@
     <p><strong>Website:</strong> <a href="">{{ event.website }}</a></p>
     <p>{{ event.comments }} </p> </div>
     <br />
-  {% else %}
-  <div>
-    <h3>Previous Events</h3>
-    <h2>{{ event.name }} </h2>
-    <p><strong>Location:</strong> {{ event.location }} </p>
-    <p><strong>Date:</strong> {{ event.fromdate }} -  {{ event.todate }}</p>
-    <p><strong>Website:</strong> <a href="">{{ event.website }}</a></p>
-    <p>{{ event.comments }} </p> </div>
-  {% endif %}
+  
   {% endfor %}
   </div>
   <div class="col-md-1">
