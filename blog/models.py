@@ -88,7 +88,7 @@ class Event(models.Model):
 class Article(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    summary = models.CharField(max_length=200)
+    summary = models.TextField()
     picture = models.CharField(max_length=200, null=True)
     text = models.TextField()
     created_date = models.DateTimeField(
