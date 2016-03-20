@@ -44,7 +44,7 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(
     blank=True, null=True)
-    post = models.CharField(max_length=5)
+    post = models.ForeignKey(Post, db_constraint=False)
 
     class Meta:
         managed = True
