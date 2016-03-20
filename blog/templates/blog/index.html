@@ -5,10 +5,17 @@
 
 </div>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-1">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-7">
+      {% for article in <article class="">
 
+      </article>s %}
+        <div>
+          <h2><a href="{% url 'post_detail' pk=article.pk %}">{{ article.title }}</a></h2>
+          <p>{{ article.summary }} </p> <a href="{% url 'post_detail' pk=article.pk %}">Read more...</a></div>
+          <br />
+        {% endfor %}
   </div>
   <div class="col-md-4">
     <h3><strong>Upcoming Events</strong></h3>
