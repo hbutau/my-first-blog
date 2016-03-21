@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
       {% for article in articles %}
         <div>
           <h2><a href="#">{{ article.title }}</a></h2>
@@ -11,7 +11,7 @@
           <br />
         {% endfor %}
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <h2><a href="{% url 'events' %}">Upcoming Events</a></h2>
     {% for event in events %}
       <div>
