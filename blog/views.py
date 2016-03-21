@@ -13,7 +13,8 @@ from django.utils import timezone
 from datetime import datetime
 
 from blog.forms import ContactForm, CommentForm
-from .models import Post, Event, Article
+from .models import (Post, Event, Article, AboutPage, DjangoArticle,
+                    PythonArticle)
 
 
 class HomeView(TemplateView):
@@ -26,6 +27,19 @@ class HomeView(TemplateView):
         context['title'] = 'Home Page'
         context['year'] = datetime.now().year
         return context
+
+
+class AboutView(TemplateView):
+    template_name = "blog/about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
+        context['aboutpage'] =  AboutPage.objects.all()
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        context['title'] = 'About Anna'
+        context['year'] = datetime.now().year
+        return context
+
 
 
 class ContactView(TemplateView):
