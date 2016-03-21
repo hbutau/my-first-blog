@@ -1,7 +1,7 @@
 from django.conf.urls import url, patterns
 from . import views
 from blog.views import (HomeView, Post_ListView, ContactView, GalleryView,
-                        EventsView, PythonView, DjangoView, AboutView
+                        EventsView, PythonView, DjangoView, AboutView,
                         ThankYouView, Post_DetailView)
 
 import re
