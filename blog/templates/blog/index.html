@@ -12,7 +12,7 @@
         {% endfor %}
   </div>
   <div class="col-md-4">
-    <h3><strong>Upcoming Events</strong></h3>
+    <h2><a href="{% url 'events' %}">Upcoming Events</a></h2>
     {% for event in events %}
       <div>
         <h4>{{ event.name }} </h4>
