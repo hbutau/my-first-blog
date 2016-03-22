@@ -6,7 +6,7 @@
   <div class="col-md-9">
       {% for project in projects %}
         <div>
-          <h2><a href="#">{{ project.title }}</a></h2>
+          <h2><a href="#">{{ project.name }}</a></h2>
           <p>{{ project.text }} </p> </div>
           <p><strong>Date:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
           <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
