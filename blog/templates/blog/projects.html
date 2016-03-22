@@ -4,10 +4,10 @@
 
 <div class="row">
   <div class="col-md-9">
-      {% for article in articles %}
+      {% for project in projects %}
         <div>
-          <h2><a href="#">{{article.title }}</a></h2>
-          <p>{{ article.text|linebreaks }} </p> </div>
+          <h2><a href="#">{{ project.title }}</a></h2>
+          <p>{{ project.text|linebreaks }} </p> </div>
           <br />
         {% endfor %}
   </div>

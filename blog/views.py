@@ -14,7 +14,7 @@ from datetime import datetime
 
 from blog.forms import ContactForm, CommentForm
 from .models import (Post, Event, Article, AboutPage, DjangoArticle,
-                    PythonArticle)
+                    PythonArticle, Project)
 
 
 class HomeView(TemplateView):
@@ -40,6 +40,17 @@ class AboutView(TemplateView):
         context['year'] = datetime.now().year
         return context
 
+
+class ProjectsView(TemplateView):
+    template_name = "blog/projects.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProjectsView, self).get_context_data(**kwargs)
+        context['projects'] =  Project.objects.all()
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+        context['title'] = 'Projects'
+        context['year'] = datetime.now().year
+        return context
 
 
 class ContactView(TemplateView):
@@ -107,6 +118,7 @@ class PythonView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PythonView, self).get_context_data(**kwargs)
+        context['articles'] =  PythonArticles.objects.all()
         context['title'] = 'Python'
         context['year'] = datetime.now().year
         return context
@@ -117,6 +129,7 @@ class DjangoView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(DjangoView, self).get_context_data(**kwargs)
+        context['articles'] = DjangoArticle.objects.all()
         context['title'] = 'Django'
         context['year'] = datetime.now().year
         return context

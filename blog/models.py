@@ -64,7 +64,7 @@ class Event(models.Model):
     location =  models.CharField(max_length=200)
     website = models.TextField()
     comments = models.TextField()
-    dateposted = models.DateTimeField('date posted', default=timezone.now)
+    dateposted = models.DateTimeField('Date posted', default=timezone.now)
     published_date = models.DateTimeField(
     blank=True, null=True)
 
@@ -183,3 +183,25 @@ class DjangoArticle(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Project(models.Model):
+    name = models.CharField(max_length=200)
+    startdate = models.DateTimeField('Start date', default=timezone.now)
+    enddate = models.DateTimeField('End date', default=timezone.now)
+    description =  models.TextField()
+    website = models.TextField()
+    comments = models.TextField()
+    created_dateposted = models.DateTimeField('Date created', default=timezone.now)
+    published_date = models.DateTimeField(
+    blank=True, null=True)
+
+    class Meta:
+        managed = True
+
+    def __str__(self):
+        return self.name
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()

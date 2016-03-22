@@ -1,28 +1,27 @@
 {% extends "blog/layout.html" %}
 
 {% block content %}
-<div>
-<h2><a href="{% url 'django' %}">Django</a></h2>
-</div>
-<div>
-<p> Anna is a member of PyZim, a local group of Python Programmers in
-  Zimbabwe. Her work with PyZim has seen her working together with
-  Humphrey Butau to organise the first ever Django Girls Harare to be
-  held in Harare on 9th April 2016. Django Girls Harare is a non-profit
-  affiliation of Django Girls international which aims to introduce women in
-  Zimbabwe to the programming industry by mentoring and  coaching them in
-  Python/Django web development.</p>
-<br />
-<p> Anna's involvement with Django Girls Harare enabled her to be a part of
-  PyCon Namibia 2016 held 25th - 29th January 2016. PyCon Namibia offered Anna
-  the chance to coach at Django Girls Windhoek and get a peek of what it would
-  be like to organise, host and coach at a Django Girls Workshop. Anna also gave
-  a talk on <a href="">About Learning to Program</a> and also conducted a workshop 
-  on <a href="">Using PyThon/Django to Solve Real Life Problems</a>. All these
-  activities were mainly for  beginners and aimed at helping attendees who were
-  new to programming find their way in their programming field.
- </p>
-<br />
-</div>
 
+<div class="row">
+  <div class="col-md-9">
+    {% for article in articles %}
+      <div>
+        <h2><a href="#">{{article.title }}</a></h2>
+        <p>{{ article.text|linebreaks }} </p> </div>
+        <br />
+      {% endfor %}
+  </div>
+  <div class="col-md-3">
+    <h2><a href="{% url 'events' %}">Upcoming Events</a></h2>
+    {% for event in events %}
+      <div>
+        <h4>{{ event.name }} </h4>
+        <p><strong>Location:</strong> {{ event.location }} </p>
+        <p><strong>Date:</strong> {{ event.fromdate }} -  {{ event.todate }}</p>
+        <p><strong>Website:</strong> <a href="">{{ event.website }}</a></p>
+        <br />
+      {% endfor %}
+</div>
+</div>
+</div>
 {% endblock %}

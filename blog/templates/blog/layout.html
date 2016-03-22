@@ -29,13 +29,15 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'events' %}">Events</a></li>
-                    <li><a href="#">Django</a></li>
-                    <li><a href="#">Python</a></li>
+                    <li><a href="{% url 'projects' %}">Projects</a></li>
+                    <li><a href="{% url 'django' %}">Django</a></li>
+                    <li><a href="{% url 'python' %}">Python</a></li>
                     <li><a href="{% url 'post_list' %}">Blog</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul></strong>
                 <ul class="nav navbar-nav navbar-right">
+                  <li><a href="">Log In</a></li>
                   <li><a href="https://twitter.com/amakarudze" target="blank" >
                     <img src="{% static 'blog/images/twitter1.jpg' %}" height="35"
                     width="35" alt="Twitter alt"></a></li>
