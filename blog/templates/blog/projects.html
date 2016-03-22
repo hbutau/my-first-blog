@@ -5,13 +5,14 @@
 <div class="row">
   <div class="col-md-9">
       {% for project in projects %}
-        <div>
-          <h2><a href="#">{{ project.title }}</a></h2>
-          <p>{{ project.text }} </p> </div>
-          <p><strong>Date:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
-          <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
-          <p><strong>Website:</strong> <a href="">{{ project.website }}</a></p>
-          <p><strong>Comments:</strong> {{ project.comments|linebreaks }}</a></p>
+      <div>
+        <h2><a href="#">{{ project.name }}</a></h2>
+        <p><strong>Date:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
+        <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
+        <p><strong>Website:</strong> <a href="">{{ project.website }}</a></p>
+        <p><strong>Comments:</strong> {{ project.comments|linebreaks }}</a></p>
+        <br />
+      </div>
           <br />
         {% endfor %}
   </div>
