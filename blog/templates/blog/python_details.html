@@ -6,7 +6,7 @@
   <div class="col-md-9">
         <div>
           <h2><a href="#">{{article.title }}</a></h2>
-          <img src="{{ article.picture }}" alt="" />
+          <img src="{% static '{{ article.picture }}' %}" alt="" />
           <p>{{ article.text|linebreaks }} </p> </div>
           <p>Download PDF<a href="#">{{ article.attachment }} </a></p>
           <br />

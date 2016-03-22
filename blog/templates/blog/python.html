@@ -8,7 +8,7 @@
         <div>
           <h2><a href="{% url 'python_details' pk=article.pk %}">{{article.title }}</a></h2>
           <p>{{ article.summary|linebreaks }} </p>
-          <img src="{{ article.picture }}" alt="" />
+          <img src="{% static '{{ article.picture }}' %}" alt="" />
           <p>Download PDF<a href="#">{{ article.attachment }} </a></p>
           <a href="{% url 'python_details' pk=article.pk %}">Read more...</a>
         </div>
