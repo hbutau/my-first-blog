@@ -53,6 +53,18 @@ class ProjectsView(TemplateView):
         return context
 
 
+class Project_DetailView(TemplateView):
+    template_name = "blog/project_detail.html"
+
+    def get_context_data(self, pk, **kwargs):
+        context = super(Project_DetailView, self).get_context_data(**kwargs)
+        context['project'] = get_object_or_404(Project, pk=pk)
+        context['title'] = 'Projects'
+        context['message'] = 'Projects'
+        context['year'] = datetime.now().year
+        return context
+
+
 class ContactView(TemplateView):
     contact_form = ContactForm()
     template_name = "blog/contact.html"
@@ -125,6 +137,18 @@ class PythonView(TemplateView):
         return context
 
 
+class Python_DetailView(TemplateView):
+    template_name = "blog/python_detail.html"
+
+    def get_context_data(self, pk, **kwargs):
+        context = super(Python_DetailView, self).get_context_data(**kwargs)
+        context['python'] = get_object_or_404(PythonArticle, pk=pk)
+        context['title'] = 'Python'
+        context['message'] = 'Python'
+        context['year'] = datetime.now().year
+        return context
+
+
 class DjangoView(TemplateView):
     template_name = "blog/django.html"
 
@@ -133,6 +157,18 @@ class DjangoView(TemplateView):
         context['articles'] = DjangoArticle.objects.all()
         context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Django'
+        context['year'] = datetime.now().year
+        return context
+
+
+class Django_DetailView(TemplateView):
+    template_name = "blog/django_detail.html"
+
+    def get_context_data(self, pk, **kwargs):
+        context = super(Django_DetailView, self).get_context_data(**kwargs)
+        context['post'] = get_object_or_404(DjangoArticle, pk=pk)
+        context['title'] = 'Django'
+        context['message'] = 'Django'
         context['year'] = datetime.now().year
         return context
 

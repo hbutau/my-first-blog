@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^contact$', ContactView.as_view(), name='contact'),
     url(r'^events/', EventsView.as_view(), name='events'),
     url(r'^projects/$', ProjectsView.as_view(), name='projects'),
+    url(r'^project/(?P<pk>\d+)/$', Project_DetailView.as_view(), name='project_detail'),
     url(r'^python/$', PythonView.as_view(), name='python'),
     url(r'^django/$', DjangoView.as_view(), name='django'),
     url(r'^thankyou$', ThankYouView.as_view(), name='thankyou'),

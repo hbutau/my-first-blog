@@ -6,13 +6,10 @@
   <div class="col-md-9">
       {% for project in projects %}
       <div>
-        <h2><a href="#">{{ project.name }}</a></h2>
+        <h2><a href="{% url 'project_detail' pk=project.pk %}">{{ project.name }}</a></h2>
         <p><strong>Date:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
         <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
-        <p><strong>Website:</strong> <a href="">{{ project.website }}</a></p>
-        <p><strong>Comments:</strong> {{ project.comments|linebreaks }}</a></p>
-        <br />
-      </div>
+        </div>
           <br />
         {% endfor %}
   </div>
