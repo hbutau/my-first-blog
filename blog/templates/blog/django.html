@@ -7,7 +7,10 @@
     {% for article in articles %}
       <div>
         <h2><a href="{% url 'django_details' pk=article.pk %}">{{article.title }}</a></h2>
-        <p>{{ article.summary|linebreaks }} </p> </div>
+        <p>{{ article.summary|linebreaks }} </p> 
+        <p>Download PDF<a href="#">{{ article.attachment }} </a>
+        <a href="{% url 'django_details' pk=article.pk %}">Read more...</a>
+      </div>
         <br />
       {% endfor %}
   </div>

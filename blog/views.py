@@ -59,6 +59,7 @@ class Project_DetailView(TemplateView):
     def get_context_data(self, pk, **kwargs):
         context = super(Project_DetailView, self).get_context_data(**kwargs)
         context['project'] = get_object_or_404(Project, pk=pk)
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Projects'
         context['message'] = 'Projects'
         context['year'] = datetime.now().year
@@ -142,7 +143,8 @@ class Python_DetailView(TemplateView):
 
     def get_context_data(self, pk, **kwargs):
         context = super(Python_DetailView, self).get_context_data(**kwargs)
-        context['python'] = get_object_or_404(PythonArticle, pk=pk)
+        context['article'] = get_object_or_404(PythonArticle, pk=pk)
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Python'
         context['message'] = 'Python'
         context['year'] = datetime.now().year
@@ -166,7 +168,8 @@ class Django_DetailView(TemplateView):
 
     def get_context_data(self, pk, **kwargs):
         context = super(Django_DetailView, self).get_context_data(**kwargs)
-        context['post'] = get_object_or_404(DjangoArticle, pk=pk)
+        context['article'] = get_object_or_404(DjangoArticle, pk=pk)
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Django'
         context['message'] = 'Django'
         context['year'] = datetime.now().year
