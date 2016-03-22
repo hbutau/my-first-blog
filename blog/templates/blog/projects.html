@@ -6,8 +6,8 @@
   <div class="col-md-9">
       {% for project in projects %}
       <div>
-        <h2><a href="{% url 'project_detail' pk=project.pk %}">{{ project.name }}</a></h2>
-        <p><strong>Date:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
+        <h2><a href="{% url 'project_details' pk=project.pk %}">{{ project.name }}</a></h2>
+        <p><strong>Period:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
         <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
         </div>
           <br />
