@@ -9,6 +9,8 @@
         <h2><a href="{% url 'project_details' pk=project.pk %}">{{ project.name }}</a></h2>
         <p><strong>Period:</strong> {{ project.startdate }} -  {{ project.enddate }}</p>
         <p><strong>Description:</strong> {{ project.description|linebreaks }}</a></p>
+        <br />
+        <a href="{% url 'project_details' pk=project.pk %}">Read more...</a>
         </div>
           <br />
         {% endfor %}
