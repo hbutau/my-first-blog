@@ -54,7 +54,7 @@ class ProjectsView(TemplateView):
 
 
 class Project_DetailView(TemplateView):
-    template_name = "blog/project_detail.html"
+    template_name = "blog/project_details.html"
 
     def get_context_data(self, pk, **kwargs):
         context = super(Project_DetailView, self).get_context_data(**kwargs)
@@ -138,7 +138,7 @@ class PythonView(TemplateView):
 
 
 class Python_DetailView(TemplateView):
-    template_name = "blog/python_detail.html"
+    template_name = "blog/python_details.html"
 
     def get_context_data(self, pk, **kwargs):
         context = super(Python_DetailView, self).get_context_data(**kwargs)
@@ -162,7 +162,7 @@ class DjangoView(TemplateView):
 
 
 class Django_DetailView(TemplateView):
-    template_name = "blog/django_detail.html"
+    template_name = "blog/django_details.html"
 
     def get_context_data(self, pk, **kwargs):
         context = super(Django_DetailView, self).get_context_data(**kwargs)
