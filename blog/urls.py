@@ -2,7 +2,8 @@ from django.conf.urls import url, patterns
 from . import views
 from blog.views import (HomeView, Post_ListView, ContactView, GalleryView,
                         EventsView, PythonView, DjangoView, AboutView,
-                        ThankYouView, Post_DetailView, ProjectsView)
+                        ThankYouView, Post_DetailView, ProjectsView,
+                        Project_DetailView, Python_DetailView, Django_DetailView)
 
 
 urlpatterns = [
