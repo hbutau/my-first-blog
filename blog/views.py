@@ -118,7 +118,7 @@ class PythonView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PythonView, self).get_context_data(**kwargs)
-        context['articles'] =  PythonArticles.objects.all()
+        context['articles'] =  PythonArticle.objects.all()
         context['title'] = 'Python'
         context['year'] = datetime.now().year
         return context
