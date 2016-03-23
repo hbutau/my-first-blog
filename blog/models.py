@@ -163,10 +163,6 @@ class PythonArticle(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def relative_path(self):
-        return os.path.relpath(self.path, settings.MEDIA_ROOT)
-
 
 class DjangoArticle(models.Model):
     author = models.ForeignKey('auth.User')
@@ -188,11 +184,7 @@ class DjangoArticle(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def relative_path(self):
-        return os.path.relpath(self.path, settings.MEDIA_ROOT)
-
-
+    
 class Project(models.Model):
     name = models.CharField(max_length=200)
     startdate = models.DateTimeField('Start date', default=timezone.now)
