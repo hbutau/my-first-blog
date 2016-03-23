@@ -46,7 +46,7 @@ class ProjectsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProjectsView, self).get_context_data(**kwargs)
-        context['projects'] =  Project.objects.all()
+        context['projects'] =  Project.objects.all().order_by('-pk')
         context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Projects'
         context['year'] = datetime.now().year
@@ -59,7 +59,7 @@ class Project_DetailView(TemplateView):
     def get_context_data(self, pk, **kwargs):
         context = super(Project_DetailView, self).get_context_data(**kwargs)
         context['project'] = get_object_or_404(Project, pk=pk)
-        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        context['events'] =  Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
         context['title'] = 'Projects'
         context['message'] = 'Projects'
         context['year'] = datetime.now().year
