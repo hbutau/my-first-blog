@@ -7,7 +7,7 @@
   <div>
         <h2><a href="#">{{article.title }}</a></h2>
         <p>{{ article.text|linebreaks }} </p> </div>
-        <p>Download PDF<a href="{{ MEDIA_URL }}/{{ article.attachment }}">
+        <p>Download PDF<a href="{{ article.attachment }}">
           {{article.title }} </a></p>
         <br />
   </div>

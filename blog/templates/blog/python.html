@@ -10,7 +10,7 @@
           <p>{{ article.summary|linebreaks }} </p>
           <img src="{{ article.picture }}" alt="" />
             <br />
-          <p>Download PDF<a href="{{ MEDIA_URL }}/{{ article.attachment }}">
+          <p>Download PDF<a href="{{ article.attachment }}">
             {{article.title }} </a></p>
           <br />
           <a href="{% url 'python_details' pk=article.pk %}">Read more...</a>
