@@ -38,6 +38,12 @@ li
 {
 	color:#FF0000
 }
+
+#navbar-link:active
+{
+	color:#FF0000
+}
+
 a
 	{
 		color: #032CA6;
@@ -48,6 +54,13 @@ a
 		text-decoration: none;
 		color: #FF0000;
 	}
+}
+
+a:active
+{
+	text-decoration: none;
+	color: #FF0000;
+}
 }
 
 #btn btn-default
