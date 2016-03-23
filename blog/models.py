@@ -148,7 +148,7 @@ class PythonArticle(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField()
     picture = models.CharField(max_length=200, null=True)
-    attachment = models.CharField(max_length=200, null=True)
+    attachment = models.FileField(max_length=200, null=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -162,6 +162,10 @@ class PythonArticle(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def relative_path(self):
+        return os.path.relpath(self.path, settings.MEDIA_ROOT)
 
 
 class DjangoArticle(models.Model):
@@ -169,7 +173,7 @@ class DjangoArticle(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField()
     picture = models.CharField(max_length=200, null=True)
-    attachment = models.CharField(max_length=200, null=True)
+    attachment = models.FileField(max_length=200, null=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -183,6 +187,10 @@ class DjangoArticle(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def relative_path(self):
+        return os.path.relpath(self.path, settings.MEDIA_ROOT)
 
 
 class Project(models.Model):
