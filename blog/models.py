@@ -89,7 +89,7 @@ class Article(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     summary = models.TextField()
-    picture = models.CharField(max_length=200, null=True)
+    picture = models.ImageField(max_length=200, null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -109,7 +109,7 @@ class Article(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     summary = models.TextField()
-    picture = models.CharField(max_length=200, null=True)
+    picture = models.ImageField(max_length=200, null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -128,7 +128,7 @@ class Article(models.Model):
 class AboutPage(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    picture = models.CharField(max_length=200, null=True)
+    picture = models.ImageField(max_length=200, null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -147,8 +147,8 @@ class PythonArticle(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     summary = models.TextField()
-    picture = models.CharField(max_length=200, null=True)
-    attachment = models.FileField(max_length=200, null=True)
+    picture = models.ImageField(upload_to='presentations', max_length=200, null=True, blank=True)
+    attachment = models.FileField(upload_to='presentations', max_length=200, null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -168,8 +168,8 @@ class DjangoArticle(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     summary = models.TextField()
-    picture = models.CharField(max_length=200, null=True)
-    attachment = models.FileField(max_length=200, null=True)
+    picture = models.ImageField(upload_to='presentations', max_length=200, null=True, blank=True)
+    attachment = models.FileField(upload_to='presentations', max_length=200, null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
     default=timezone.now)
@@ -184,13 +184,13 @@ class DjangoArticle(models.Model):
     def __str__(self):
         return self.title
 
-    
+
 class Project(models.Model):
     name = models.CharField(max_length=200)
     startdate = models.DateTimeField('Start date', default=timezone.now)
     enddate = models.DateTimeField('End date', default=timezone.now)
     description =  models.TextField()
-    website = models.TextField()
+    website = models.TextField(null=True, blank=True)
     comments = models.TextField()
     created_dateposted = models.DateTimeField('Date created', default=timezone.now)
     published_date = models.DateTimeField(
