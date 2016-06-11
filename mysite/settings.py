@@ -84,12 +84,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'amakarudze$blog',
-        'USER': 'amakarudze',
-        'PASSWORD': 'T@wana03',
+        'USER': 'hamub',
+        'PASSWORD': 'Louis2353/?',
         'OPTIONS': {
           'autocommit': True,
         },
-        'HOST': 'amakarudze.mysql.pythonanywhere-services.com',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
