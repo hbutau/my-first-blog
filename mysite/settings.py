@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'amakarudze$blog',
+        'NAME': 'amakarudze',
         'USER': 'hamub',
-        'PASSWORD': 'Louis2353/?',
+        'PASSWORD': 'louis2353/?',
         'OPTIONS': {
           'autocommit': True,
         },
